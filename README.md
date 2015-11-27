@@ -1,10 +1,11 @@
 # ActsAsCategorizable
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/acts_as_categorizable`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem allows any model to be categorized.
 
-TODO: Delete this and the text above, and describe your gem
+Categories can be defined in a tree structure, allowing items to be structured.
+They also support slugs, so they can be used for Semantic URLs.
 
-## Installation
+## Usage (Rails 4+)
 
 Add this line to your application's Gemfile:
 
@@ -20,20 +21,37 @@ Or install it yourself as:
 
     $ gem install acts_as_categorizable
 
+## Installation
+
+```
+rails g acts-as-categorizable:migration <table_name> # default 'aac_categories'
+rake db:migrate
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+class Page < ActiveRecord::Base
+  acts_as_categorizable table_name: 'categories_table', # Default: 'aac_categories'
+                        class_name: 'CustomCategory',   # Default: 'ActsAsCategorizable::Category'
+                        dependent: :destroy             # Default: :nullify
+```
 
-## Development
+## TODO
+There are still a lot of things to add to this gem. Consider it as a work in progress.
+Some of the missing stuff is:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake false` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+- Unit testing
+- Sortable categories
+- Better searching functionality
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/acts_as_categorizable. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/woopasoft/acts_as_categorizable. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
+## Special mentions
+This gem is heavily inspired in [ActsAsMessageable](https://github.com/LTe/acts-as-messageable) and [ActsAsCommentable](https://github.com/jackdempsey/acts_as_commentable)
+Thank you guys for publishing your work!
 
 ## License
 
