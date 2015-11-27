@@ -1,18 +1,21 @@
 class CreateAacCategoriesTable < ActiveRecord::Migration
   def self.up
     create_table :<%= table_name %> do |t|
-      t.string :title
+      t.string :title, index: true
       t.string :slug
 
-      t.references :categorizables, polymorphic: true, index: true
+      t.references :categorizables, polymorphic: true
       t.boolean :active, default: true
-      t.string :ancestry
-
-      t.timestamps null: false
 
       # ancestry
       t.string :ancestry, index: true
+
+      t.timestamps null: false
     end
+
+    add_index :<%= table_name %>,
+              [:categorizables_id, :categorizables_type],
+              name: 'aac_categorizable_id'
   end
 
   def self.down
