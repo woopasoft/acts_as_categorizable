@@ -1,7 +1,10 @@
 require 'friendly_id'
+require 'ancestry'
 
 module ActsAsCategorizable
   class Category < ::ActiveRecord::Base
+    self.table_name = 'aac_categories'
+
     # Includes
     include ActsAsCategorizable::Scopes
     include ActsAsCategorizable::Finders
@@ -9,6 +12,9 @@ module ActsAsCategorizable
     # Extends
     extend FriendlyId
     friendly_id :slug_candidates, use: [:slugged, :finders]
+
+    # Make categories behave like a tree
+    has_ancestry orphan_strategy: :adopt
 
     # Associations
     has_many :categorizable_category
