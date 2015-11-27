@@ -48,7 +48,7 @@ Some of the missing stuff is:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/woopasoft/acts_as_categorizable. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/woopasoft/acts_as_categorizable. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org/version/1/3/0/) code of conduct.
 
 ## Special mentions
 This gem is heavily inspired in [ActsAsMessageable](https://github.com/LTe/acts-as-messageable) and [ActsAsCommentable](https://github.com/jackdempsey/acts_as_commentable)
