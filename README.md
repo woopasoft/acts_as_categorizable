@@ -35,6 +35,7 @@ class Page < ActiveRecord::Base
   acts_as_categorizable table_name: 'categories_table', # Default: 'aac_categories'
                         class_name: 'CustomCategory',   # Default: 'ActsAsCategorizable::Category'
                         dependent: :destroy             # Default: :nullify
+end
 ```
 
 ## TODO
