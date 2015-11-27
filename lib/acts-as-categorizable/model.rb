@@ -49,6 +49,12 @@ module ActsAsCategorizable
     end
 
     module InstanceMethods
+      def category=(category)
+        if title.is_a?(String) && self.class.categories_class_name.respond_to?(:[])
+          category = self.class.categories_class_name[category]
+        end
+        super
+      end
     end
   end
 end

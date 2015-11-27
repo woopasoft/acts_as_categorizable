@@ -23,6 +23,10 @@ module ActsAsCategorizable
     # Callbacks
     before_validation :ensure_title
 
+    def self.[](title)
+      where(title: title.to_s.camelize).first_or_create!
+    end
+
     private
 
     def slug_candidates
