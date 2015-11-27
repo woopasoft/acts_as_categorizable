@@ -1,4 +1,4 @@
-class CreateAacCategorizableCategoryTable
+class CreateAacCategorizableCategoryTable < ActiveRecord::Migration
   def self.up
     create_table :aac_categorizable_category do |t|
       t.references :categorizable, polymorphic: true
